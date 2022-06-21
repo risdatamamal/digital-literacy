@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +26,7 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', function () {
         return view('users');
     })->name('users');
@@ -41,9 +41,7 @@ Route::prefix('admin')
         Route::get('/dashboard', function () {
             return view('admin.dashboard');
         })->name('admin-dashboard');
-        Route::get('/users', function () {
-            return view('admin.users.index');
-        })->name('admin-users');
+        Route::resource('/users', UsersController::class);
         Route::get('/books', function () {
             return view('admin.books.index');
         })->name('admin-books');
