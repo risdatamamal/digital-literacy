@@ -8,7 +8,9 @@
     <x-slot name="script">
         <script>
             // AJAX DataTable
-            var datatable = $('#crudTable').DataTable();
+            var datatable = $('#crudTable').DataTable({
+                "scrollX": true
+            });
         </script>
     </x-slot>
 
@@ -16,19 +18,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
-                    {{-- <table id="crudTable">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nama</th>
-                            <th>Email</th>
-                            <th>Roles</th>
-                            <th>Aksi</th>
-                        </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table> --}}
-                    <table id="crudTable">
+                    <table width="100%" id="crudTable">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -47,7 +37,7 @@
                                     <td>{{ $user->roles }}</td>
                                     <td>
                                         <div class="d-flex justify-content-evenly">
-                                            <a class="border border-gray-500 bg-gray-500 text-white rounded-md px-2 py-1 m-2 transition duration-500 ease select-none hover:bg-gray-600 focus:outline-none focus:shadow-outline" 
+                                            <a class="inline-block border border-gray-500 bg-gray-500 text-white rounded-md px-2 py-1 m-2 transition duration-500 ease select-none hover:bg-gray-600 focus:outline-none focus:shadow-outline" 
                                                 href="">
                                                 Edit
                                             </a>
