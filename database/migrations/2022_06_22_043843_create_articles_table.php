@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->integer('rating');
             $table->string('content');
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreignId('category_id')->onDelete('cascade');
+            $table->foreignId('user_id')->onDelete('cascade');
             $table->timestamps();
         });
     }
