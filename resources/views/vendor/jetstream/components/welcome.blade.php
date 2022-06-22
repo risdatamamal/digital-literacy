@@ -7,21 +7,21 @@
 <div class="bg-opacity-25 grid grid-cols-1 md:grid-cols-2">
     <div class="p-6">
         <div class="mt-8 text-xl text-center font-bold">
-            USER
+            xxx
         </div>
         
         <div class="mt-6 text-lg text-gray-500 text-center">
-            125
+            xxx
         </div>
     </div>
 
     <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
         <div class="mt-8 text-xl text-center font-bold">
-            BOOK
+            xxx
         </div>
         
         <div class="mt-6 text-lg text-gray-500 text-center">
-            50
+            xxx
         </div>
     </div>
 </div>

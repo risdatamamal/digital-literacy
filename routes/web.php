@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\admin\DashboardAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,12 +28,6 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/users', function () {
-        return view('users');
-    })->name('users');
-    Route::get('/books', function () {
-        return view('books');
-    })->name('books');
 });
 
 // Admin
@@ -40,9 +35,7 @@ Route::middleware([
 Route::prefix('admin')
     ->middleware(['auth:sanctum', 'admin', 'verified'])
     ->group(function() {
-        Route::get('/dashboard', function () {
-            return view('pages.admin.dashboard');
-        })->name('admin-dashboard');
+        Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin-dashboard');
         Route::resource('/users', UsersController::class);
         Route::get('/books', function () {
             return view('pages.admin.books.index');
