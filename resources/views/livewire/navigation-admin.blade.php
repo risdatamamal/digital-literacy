@@ -156,9 +156,9 @@
             <x-jet-responsive-nav-link href="{{ route('admin-dashboard') }}" :active="request()->routeIs('admin-dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
-            <x-jet-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
+            <x-jet-responsive-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                 {{ __('Users') }}
-            </x-jet-nav-link>
+            </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('admin-books') }}" :active="request()->routeIs('admin-books')">
                 {{ __('Books') }}
             </x-jet-responsive-nav-link>
