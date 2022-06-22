@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
 use Yajra\DataTables\Facades\DataTables;
 
 class UsersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $data = [
@@ -22,67 +18,49 @@ class UsersController extends Controller
         return view('admin.users.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function edit(User $user)
     {
-        //
+        return view('admin.users.edit',[
+            'item' => $user
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function update(UserRequest $request, User $user)
     {
-        //
+        $data = $request->all();
+
+        if($request->password)
+        {
+            $data['password'] = bcrypt($request->password);
+        }
+            else
+        {
+            unset($data['password']);
+        }
+
+        $item = User::where("email", $request->email)->first();
+
+        if ($item != null) 
+        {
+            $item = $item->email;
+        } 
+            else 
+        {
+            $item = '';
+        }
+
+        if($request->email == $item)
+        {
+            // $request->session()->flash('failed', 'Data berhasil di update kecuali ' . 'Email ' . $request->email . ' sudah digunakan!' );
+
+            unset($data['email']);
+        }
+
+        $user->update($data);
+        
+        return redirect()->route('users.index')->with('success', 'Data berhasil diupdate');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(User $user)
     {
         $user->delete();

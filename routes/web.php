@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Dashboard Admin
+// User
 
 Route::middleware([
     'auth:sanctum',
@@ -34,6 +34,8 @@ Route::middleware([
         return view('books');
     })->name('books');
 });
+
+// Admin
 
 Route::prefix('admin')
     ->middleware(['auth:sanctum', 'admin', 'verified'])

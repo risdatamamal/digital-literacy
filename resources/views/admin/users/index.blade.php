@@ -38,7 +38,7 @@
                                     <td>
                                         <div class="d-flex justify-content-evenly">
                                             <a class="inline-block border border-gray-500 bg-gray-500 text-white rounded-md px-2 py-1 m-2 transition duration-500 ease select-none hover:bg-gray-600 focus:outline-none focus:shadow-outline" 
-                                                href="">
+                                                href="{{ route('users.edit', $user->id) }}">
                                                 Edit
                                             </a>
                                             <form class="inline-block" action="{{ route('users.destroy', $user->id) }}" method="POST">
