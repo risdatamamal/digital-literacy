@@ -75,6 +75,10 @@
                     </div>
                 @endif
 
+                <div class="ml-3 relative">
+                    {{ Auth::user()->roles }}
+                </div>
+
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
@@ -175,7 +179,7 @@
 
                 <div>
                     <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->roles }}</div>
                 </div>
             </div>
 

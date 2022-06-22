@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -41,10 +41,10 @@ Route::prefix('admin')
     ->middleware(['auth:sanctum', 'admin', 'verified'])
     ->group(function() {
         Route::get('/dashboard', function () {
-            return view('admin.dashboard');
+            return view('pages.admin.dashboard');
         })->name('admin-dashboard');
         Route::resource('/users', UsersController::class);
         Route::get('/books', function () {
-            return view('admin.books.index');
+            return view('pages.admin.books.index');
         })->name('admin-books');
     });

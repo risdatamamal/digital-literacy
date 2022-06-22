@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
-use Yajra\DataTables\Facades\DataTables;
+use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
@@ -15,12 +15,12 @@ class UsersController extends Controller
             'users' => User::all()
         ];
 
-        return view('admin.users.index', $data);
+        return view('pages.admin.users.index', $data);
     }
 
     public function edit(User $user)
     {
-        return view('admin.users.edit',[
+        return view('pages.admin.users.edit',[
             'item' => $user
         ]);
     }
