@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('genre');
-            $table->string('authpr');
+            $table->string('author');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
