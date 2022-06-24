@@ -17,7 +17,7 @@ use App\Http\Controllers\admin\DashboardAdminController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 // User
