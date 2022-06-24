@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+
+use App\Http\Controllers\admin\BooksController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\DashboardAdminController;
 
@@ -22,11 +24,8 @@ Route::get('/', function () {
 
 // User
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
+    ->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
 
@@ -37,7 +36,5 @@ Route::prefix('admin')
     ->group(function() {
         Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin-dashboard');
         Route::resource('/users', UsersController::class);
-        Route::get('/books', function () {
-            return view('pages.admin.books.index');
-        })->name('admin-books');
+        Route::resource('/books', BooksController::class);
     });

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->integer('rating');
+            $table->integer('rating')->nullable();
             $table->string('content');
             $table->foreignId('category_id')->onDelete('cascade');
             $table->foreignId('user_id')->onDelete('cascade');
