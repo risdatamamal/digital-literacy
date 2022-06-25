@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+
+use App\Http\Controllers\admin\BooksController;
+use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\admin\DashboardAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,37 +19,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
-// Dashboard Admin
+// User
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-    Route::get('/users', function () {
-        return view('users');
-    })->name('users');
-    Route::get('/books', function () {
-        return view('books');
-    })->name('books');
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
+    ->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
+
+// Admin
 
 Route::prefix('admin')
     ->middleware(['auth:sanctum', 'admin', 'verified'])
     ->group(function() {
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('admin-dashboard');
-        Route::get('/users', function () {
-            return view('admin.users.index');
-        })->name('admin-users');
-        Route::get('/books', function () {
-            return view('admin.books.index');
-        })->name('admin-books');
+        Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin-dashboard');
+        Route::resource('/users', UsersController::class);
+        Route::resource('/books', BooksController::class);
     });
