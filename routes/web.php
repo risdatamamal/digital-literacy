@@ -21,7 +21,7 @@ use App\Http\Controllers\admin\QuotesController;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('welcome');
 });
 
 // User
