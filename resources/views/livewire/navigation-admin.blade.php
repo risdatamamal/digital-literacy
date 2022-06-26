@@ -114,10 +114,20 @@
                         </x-slot>
 
                         <x-slot name="content">
+                            <x-jet-dropdown-link href="{{ route('dashboard') }}">
+                                {{ __('Dashboard User') }}
+                            </x-jet-dropdown-link>
+
+                            <div class="border-t border-gray-100"></div>
+
                             <!-- Account Management -->
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
+
+                            <x-jet-dropdown-link href="/">
+                                {{ __('Home') }}
+                            </x-jet-dropdown-link>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
                                 {{ __('Profile') }}
@@ -190,7 +200,15 @@
             </div>
 
             <div class="mt-3 space-y-1">
+                <x-jet-responsive-nav-link href="{{ route('dashboard') }}">
+                    {{ __('Dashboard User') }}
+                </x-jet-responsive-nav-link> 
+
                 <!-- Account Management -->
+                <x-jet-responsive-nav-link href="/">
+                    {{ __('Home') }}
+                </x-jet-responsive-nav-link> 
+
                 <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     {{ __('Profile') }}
                 </x-jet-responsive-nav-link>

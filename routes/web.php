@@ -20,7 +20,7 @@ use App\Http\Controllers\admin\DashboardAdminController;
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('welcome');
 });
 
 // User
