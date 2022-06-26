@@ -28,7 +28,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Title</th>
-                                <th>Rating</th>
                                 <th>Category</th>
                                 <th>User</th>
                                 <th>Aksi</th>
@@ -39,9 +38,8 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $book->title }}</td>
-                                    <td>{{ $book->rating }}</td>
-                                    <td>{{ $book->category_id }}</td>
-                                    <td>{{ $book->user_id }}</td>
+                                    <td>{{ $book->category->name }}</td>
+                                    <td>{{ $book->user->name }}</td>
                                     <td>
                                         <div class="d-flex justify-content-evenly">
                                             <a class="inline-block border border-gray-500 bg-gray-500 text-white rounded-md px-2 py-1 m-2 transition duration-500 ease select-none hover:bg-gray-600 focus:outline-none focus:shadow-outline" 
