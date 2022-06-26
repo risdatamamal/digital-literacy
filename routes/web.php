@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 
 use App\Http\Controllers\admin\BooksController;
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\DashboardAdminController;
 
 /*
@@ -37,4 +38,5 @@ Route::prefix('admin')
         Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin-dashboard');
         Route::resource('/users', UsersController::class);
         Route::resource('/books', BooksController::class);
+        Route::resource('/categories', CategoriesController::class);
     });

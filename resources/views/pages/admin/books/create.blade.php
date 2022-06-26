@@ -5,6 +5,13 @@
         </h2>
     </x-slot>
 
+    <x-slot name="script">
+        <script src="//cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace('editor');
+        </script>
+    </x-slot>
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div>
@@ -39,7 +46,7 @@
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                                 Content
                             </label>
-                            <input value="{{ old('content')}}" name="content" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Content">
+                            <textarea type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="editor" name="content" value="{{ old('content') }}"></textarea>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
