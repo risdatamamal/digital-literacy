@@ -24,6 +24,9 @@
                     <x-jet-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.*')">
                         {{ __('Categories') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('quotes.index') }}" :active="request()->routeIs('quotes.*')">
+                        {{ __('Quotes') }}
+                    </x-jet-nav-link>
                 </div>
             </div>
 

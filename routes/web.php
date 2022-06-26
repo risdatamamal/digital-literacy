@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\BooksController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\DashboardAdminController;
+use App\Http\Controllers\admin\QuotesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,4 +40,5 @@ Route::prefix('admin')
         Route::resource('/users', UsersController::class);
         Route::resource('/books', BooksController::class);
         Route::resource('/categories', CategoriesController::class);
+        Route::resource('/quotes', QuotesController::class);
     });
