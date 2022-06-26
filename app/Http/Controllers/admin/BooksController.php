@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Book;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BooksController extends Controller
 {
@@ -19,6 +21,11 @@ class BooksController extends Controller
 
     public function create()
     {
-        return view('pages.admin.books.create');
+        $data = [
+            'categories' => Category::all(),
+            'users' => User::all()
+        ];
+
+        return view('pages.admin.books.create', $data);
     }
 }

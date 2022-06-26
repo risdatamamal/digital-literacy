@@ -18,4 +18,11 @@ class Book extends Model
         'category_id',
         'user_id'
     ];
+
+    protected $with = ['category'];
+
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
 }

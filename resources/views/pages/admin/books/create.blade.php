@@ -55,8 +55,10 @@
                                 Category
                             </label>
                             <select name="category_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name">
-                                <option value="">Komedi</option>
-                                <option value="">Romansa</option>
+                                <option value="Select Category" disabled>Select Category</option>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -66,8 +68,10 @@
                                 User
                             </label>
                             <select name="user_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name">
-                                <option value="">Si A</option>
-                                <option value="">Si B</option>
+                                <option value="Select User" disabled>Select User</option>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
