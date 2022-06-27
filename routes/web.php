@@ -23,7 +23,7 @@ use App\Http\Controllers\admin\QuotesController;
 
 Route::get('/', function () {
     return view('pages.index');
-});
+})->name('home');
 
 // User
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
