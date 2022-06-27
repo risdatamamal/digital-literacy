@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+<nav x-data="{ open: false }" class="bg-white border-b border-black-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -27,8 +27,8 @@
                     <x-jet-nav-link href="{{ route('quotes.index') }}" :active="request()->routeIs('quotes.*')">
                         {{ __('Quotes') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs('quotes.*')">
-                        {{ __('Article') }}
+                    <x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs('articles.*')">
+                        {{ __('Articles') }}
                     </x-jet-nav-link>
                 </div>
             </div>
