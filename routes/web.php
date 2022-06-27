@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -39,4 +40,5 @@ Route::prefix('admin')
         Route::resource('/books', BooksController::class);
         Route::resource('/categories', CategoriesController::class);
         Route::resource('/quotes', QuotesController::class);
+        Route::resource('/articles', ArticleController::class);
     });
