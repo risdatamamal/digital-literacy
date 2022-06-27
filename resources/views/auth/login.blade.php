@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-auth-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
             <x-jet-authentication-card-logo />
@@ -41,7 +41,7 @@
 
             <div class="flex items-start align-justify-start ml-2">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
-                    {{ __('Register') }}
+                    {{ __('Create Account') }}
                 </a>
             </div>    
 
@@ -51,4 +51,4 @@
             </div>
         </form>
     </x-jet-authentication-card>
-</x-guest-layout>
+</x-auth-layout>

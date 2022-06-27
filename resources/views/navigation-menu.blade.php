@@ -104,10 +104,10 @@
                             @if(Auth::user()->roles == 'ADMIN') 
                                 <x-jet-dropdown-link href="{{ route('admin-dashboard') }}">
                                     {{ __('Dashboard Admin') }}
-                                </x-jet-dropdown-link>  
+                                </x-jet-dropdown-link>
+
+                                <div class="border-t border-gray-100"></div>
                             @endif
-                            
-                            <div class="border-t border-gray-100"></div>
 
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
