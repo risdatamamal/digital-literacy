@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('admin-dashboard') }}">
+                    <a href="/">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
@@ -135,8 +135,8 @@
                                 {{ __('Home') }}
                             </x-jet-dropdown-link>
 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ __('Profile') }}
+                            <x-jet-dropdown-link href="{{ route('profile.edit') }}">
+                                {{ __('Setting') }}
                             </x-jet-dropdown-link>
 
                             @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
@@ -215,8 +215,8 @@
                     {{ __('Home') }}
                 </x-jet-responsive-nav-link> 
 
-                <x-jet-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
-                    {{ __('Profile') }}
+                <x-jet-responsive-nav-link href="{{ route('profile.edit') }}" :active="request()->routeIs('profile.edit')">
+                    {{ __('Setting') }}
                 </x-jet-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
