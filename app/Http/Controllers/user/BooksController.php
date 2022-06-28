@@ -34,11 +34,9 @@ class BooksController extends Controller
     {
         $data = $request->all();
 
-        // $data['cover'] = $request->file('cover')->store('assets/book','public');
-
         Book::create($data);
 
-        return redirect()->route('user.books.index')->with('success', 'Data berhasil dibuat');
+        return redirect()->route('user.books.index')->with('success', 'Buku berhasil dibuat');
     }
 
     public function edit(Book $book)
@@ -56,22 +54,9 @@ class BooksController extends Controller
     {
         $data = $request->all();
 
-        // $item = Book::find($book->id);
-
-        // if ($request->file('cover') == null) 
-        // {
-        //     $data['cover'] = $item->cover;
-        // } 
-            
-        // else if($request->file('cover') != null)
-        // {
-        //     unlink('storage/'. $item->cover);
-        //     $data['cover'] = $request->file('cover')->store('assets/book','public');
-        // }
-
         $book->update($data);
 
-        return redirect()->route('user.books.index')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('user.books.index')->with('success', 'Buku berhasil diupdate');
     }
 
 
@@ -79,9 +64,7 @@ class BooksController extends Controller
     {
         $book->delete();
 
-        // unlink('storage/'. $book->cover);
-
-        return redirect()->route('user.books.index')->with('success', 'Data berhasil dihapus dari Admin');
+        return redirect()->route('user.books.index')->with('success', 'Buku Berhasil dihapus');
 
     }
 }
