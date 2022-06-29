@@ -18,7 +18,7 @@
                     <x-jet-nav-link href="{{ route('user.books.index') }}" :active="request()->routeIs('user.books.*')">
                         {{ __('My Books') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/" :active="request()->routeIs('user.articles.*')">
+                    <x-jet-nav-link href="{{ route('user.articles.index') }}" :active="request()->routeIs('user.articles.*')">
                         {{ __('My Articles') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="/" :active="request()->routeIs('user.writings')">
@@ -27,7 +27,7 @@
                     <x-jet-nav-link href="/" :active="request()->routeIs('user.point')">
                         {{ __('Point') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="/" :active="request()->routeIs('profile.*')">
+                    <x-jet-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.*')">
                         {{ __('Profile') }}
                     </x-jet-nav-link>
                 </div>
@@ -179,7 +179,7 @@
             <x-jet-responsive-nav-link href="{{ route('user.books.index') }}" :active="request()->routeIs('user.books.*')">
                 {{ __('My Books') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="/" :active="request()->routeIs('user.articles.*')">
+            <x-jet-responsive-nav-link href="{{ route('user.articles.index') }}" :active="request()->routeIs('user.articles.*')">
                 {{ __('My Articles') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="/" :active="request()->routeIs('user.writings.*')">

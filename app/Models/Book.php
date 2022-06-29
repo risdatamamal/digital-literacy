@@ -28,4 +28,8 @@ class Book extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+
+    protected $appends = [
+        'cover',
+    ];
 }

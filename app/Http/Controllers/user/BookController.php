@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-
-class BooksController extends Controller
+class BookController extends Controller
 {
     public function index()
     {

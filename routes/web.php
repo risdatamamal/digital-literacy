@@ -10,7 +10,8 @@ use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\QuotesController;
 
-use App\Http\Controllers\user\BooksController as UserBooksController;
+use App\Http\Controllers\user\BookController as UserBooksController;
+use App\Http\Controllers\user\ArticleController as UserArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
     ->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/books', UserBooksController::class, ['as'=>'user']);
+    Route::resource('/books', UserBooksController::class, ['as' => 'user']);
+    Route::resource('/articles', UserArticleController::class, ['as' => 'user']);
+    
 });
 
 // Admin
