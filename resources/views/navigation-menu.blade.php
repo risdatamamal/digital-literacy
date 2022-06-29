@@ -176,10 +176,10 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="/books" :active="request()->routeIs('books')">
+            <x-jet-responsive-nav-link href="/books" :active="request()->routeIs('/books')">
                 {{ __('My Books') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="/articles" :active="request()->routeIs('articles')">
+            <x-jet-responsive-nav-link href="/articles" :active="request()->routeIs('/articles')">
                 {{ __('My Articles') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="/writing" :active="request()->routeIs('writing')">

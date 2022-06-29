@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -34,6 +35,8 @@ class BooksController extends Controller
         $data = $request->all();
 
         // $data['cover'] = $request->file('cover')->store('assets/book','public');
+
+        // $data['slug'] = Str::slug($request->title);
 
         Book::create($data);
 
