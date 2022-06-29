@@ -9,12 +9,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> dev
 class BooksController extends Controller
 {
     public function index()
     {
         $data = [
+<<<<<<< HEAD
             'books' => Book::where('user_id',Auth::user()->id )->get()
+=======
+            'books' => Book::where('user_id',Auth::user()->id)->get()
+>>>>>>> dev
         ];
 
         return view('pages.user.books.index', $data);
@@ -24,7 +32,11 @@ class BooksController extends Controller
     {
         $data = [
             'categories' => Category::all(),
+<<<<<<< HEAD
             'user' => Auth::user()->id 
+=======
+            'user' => Auth::user()->id
+>>>>>>> dev
         ];
 
         return view('pages.user.books.create', $data);
@@ -36,7 +48,11 @@ class BooksController extends Controller
 
         Book::create($data);
 
+<<<<<<< HEAD
         return redirect()->route('user.books.index')->with('success', 'Buku berhasil dibuat');
+=======
+        return redirect()->route('user.books.index')->with('success', 'Data berhasil dibuat');
+>>>>>>> dev
     }
 
     public function edit(Book $book)
@@ -44,7 +60,11 @@ class BooksController extends Controller
         $data = [
             'item' => $book,
             'categories' => Category::all(),
+<<<<<<< HEAD
             'user' => Auth::user()->id 
+=======
+            'user' => Auth::user()->id
+>>>>>>> dev
         ];
 
         return view('pages.user.books.edit', $data);
@@ -64,7 +84,13 @@ class BooksController extends Controller
     {
         $book->delete();
 
+<<<<<<< HEAD
         return redirect()->route('user.books.index')->with('success', 'Buku Berhasil dihapus');
+=======
+        // unlink('storage/'. $book->cover);
+
+        return redirect()->route('user.books.index')->with('success', 'Buku berhasil dihapus');
+>>>>>>> dev
 
     }
 }
