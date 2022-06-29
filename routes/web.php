@@ -14,6 +14,8 @@ use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\BookController as UserBooksController;
 use App\Http\Controllers\user\ArticleController as UserArticleController;
 use App\Http\Controllers\user\PointsController;
+use App\Http\Controllers\user\QuotesController as UserQuotesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +36,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::resource('/books', UserBooksController::class, ['as' => 'user']);
     Route::resource('/articles', UserArticleController::class, ['as' => 'user']);
     Route::get('/points', [PointsController::class, 'index'])->name('user.points');
+    Route::resource('/quotes', UserQuotesController::class, ['as' => 'user']);
 });
 
 // Admin

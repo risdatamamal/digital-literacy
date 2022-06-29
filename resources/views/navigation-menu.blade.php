@@ -21,6 +21,9 @@
                     <x-jet-nav-link href="{{ route('user.articles.index') }}" :active="request()->routeIs('user.articles.*')">
                         {{ __('My Articles') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('user.quotes.index') }}" :active="request()->routeIs('user.quotes.*')">
+                        {{ __('My Quotes') }}
+                    </x-jet-nav-link>
                     <x-jet-nav-link href="/" :active="request()->routeIs('user.writings')">
                         {{ __('Writing') }}
                     </x-jet-nav-link>
@@ -181,6 +184,9 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('user.articles.index') }}" :active="request()->routeIs('user.articles.*')">
                 {{ __('My Articles') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('user.quotes.index') }}" :active="request()->routeIs('user.quotes.*')">
+                {{ __('My Quotes') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="/" :active="request()->routeIs('user.writings.*')">
                 {{ __('Writing') }}
