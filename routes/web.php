@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\admin\ArticleController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\admin\BooksController;
 use App\Http\Controllers\admin\UsersController;
+use App\Http\Controllers\admin\QuotesController;
+use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\admin\DashboardAdminController;
-use App\Http\Controllers\admin\QuotesController;
 
+use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\BookController as UserBooksController;
 use App\Http\Controllers\user\ArticleController as UserArticleController;
 use App\Http\Controllers\user\PointsController;
@@ -24,9 +25,7 @@ use App\Http\Controllers\user\PointsController;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.index');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // User
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
