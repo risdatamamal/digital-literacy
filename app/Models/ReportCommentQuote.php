@@ -9,4 +9,5 @@ class ReportCommentQuote extends Model
 {
     use HasFactory;
     protected $table = 'report_comment_quotes';
+    protected $fillable = ['comment_id','user_id'];
 }

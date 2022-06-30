@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Quote;
+use App\Models\CommentQuote;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -67,7 +68,12 @@ class QuotesController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = [
+            'quote' => Quote::find($id),
+            'comments' => CommentQuote::where('quote_id',$id)->get()
+        ];
+        // dd($data)
+        return view('pages.user.quotes.show', $data);
     }
 
     /**
