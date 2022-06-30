@@ -48,7 +48,14 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
             Route::put('/{id}/comment', [CommentBookController::class, 'store'])->name('user.books.comment.store');
             Route::put('/{id}/comment/report', [CommentBookController::class, 'report'])->name('user.books.comment.report');
         });
-        Route::get('/articles', [WritingController::class, 'articles'])->name('user.writing.articles');
+
+        Route::prefix('articles')
+        ->group(function() {
+            Route::get('/', [WritingController::class, 'articles'])->name('user.writing.articles');
+            Route::put('/{id}/comment', [CommentArticleController::class, 'store'])->name('user.articles.comment.store');
+            Route::put('/{id}/comment/report', [CommentArticleController::class, 'report'])->name('user.articles.comment.report');
+        });
+        
         Route::get('/quotes', [WritingController::class, 'quotes'])->name('user.writing.quotes');
     });
 
