@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\CommentArticle;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -66,6 +67,12 @@ class ArticleController extends Controller
     public function show($id)
     {
         //
+        $data = [
+            'article' => Article::find($id),
+            'comments' => CommentArticle::where('article_id',$id)->get()
+        ];
+        // dd($data)
+        return view('pages.user.articles.show', $data);
     }
 
     /**

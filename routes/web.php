@@ -16,6 +16,7 @@ use App\Http\Controllers\user\ArticleController as UserArticleController;
 use App\Http\Controllers\user\PointsController;
 use App\Http\Controllers\user\WritingController;
 use App\Http\Controllers\user\CommentBookController;
+use App\Http\Controllers\user\CommentArticleController;
 use App\Http\Controllers\user\QuotesController as UserQuotesController;
 
 /*
