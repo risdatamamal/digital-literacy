@@ -17,11 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('rating')->nullable();
-            $table->string('content');
+            $table->longText('content');
             $table->string('cover', 2048)->nullable();
-            $table->string('slug');
+            $table->string('slug')->unique();
+            $table->integer('point')->default(0);
             $table->foreignId('category_id')->onDelete('cascade');
             $table->foreignId('user_id')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

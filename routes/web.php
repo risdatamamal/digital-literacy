@@ -35,8 +35,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
     ->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::resource('/books', UserBooksController::class, ['as' => 'user']);
-    Route::resource('/articles', UserArticleController::class, ['as' => 'user']);
+    Route::resource('books', UserBooksController::class, ['as' => 'user']);
+    Route::resource('articles', UserArticleController::class, ['as' => 'user']);
     Route::get('/points', [PointsController::class, 'index'])->name('user.points');
     Route::resource('/quotes', UserQuotesController::class, ['as' => 'user']);
 
@@ -56,9 +56,9 @@ Route::prefix('admin')
     ->middleware(['auth:sanctum', 'admin', 'verified'])
     ->group(function() {
         Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin-dashboard');
-        Route::resource('/users', UsersController::class);
-        Route::resource('/books', BooksController::class);
-        Route::resource('/categories', CategoriesController::class);
-        Route::resource('/quotes', QuotesController::class);
-        Route::resource('/articles', ArticleController::class);
+        Route::resource('users', UsersController::class);
+        Route::resource('books', BooksController::class);
+        Route::resource('categories', CategoriesController::class);
+        Route::resource('quotes', QuotesController::class);
+        Route::resource('articles', ArticleController::class);
     });

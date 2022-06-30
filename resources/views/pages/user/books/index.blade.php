@@ -26,7 +26,6 @@
                     <table width="100%" id="crudTable">
                         <thead>
                             <tr>
-                                <th>No</th>
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Aksi</th>
@@ -35,7 +34,6 @@
                         <tbody>
                             @foreach ($books as $book)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $book->title }}</td>
                                     <td>{{ $book->category->name }}</td>
                                     <td>
