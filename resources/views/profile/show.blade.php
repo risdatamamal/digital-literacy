@@ -23,6 +23,11 @@
                                 <div class="font-medium text-xl text-gray-800">Name: {{ Auth::user()->name }}</div>
                                 <div class="font-medium text-xl text-gray-800">Email: {{ Auth::user()->email }}</div>
                             </div>
+                            <div class="ml-4">
+                                <x-jet-nav-link href="{{ route('profile.edit') }}">
+                                    {{ __('Setting') }}
+                                </x-jet-nav-link>
+                            </div>
                         </div>
                     </div>
                 </div>
