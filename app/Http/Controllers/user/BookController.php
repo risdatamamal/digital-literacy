@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Models\Book;
 use App\Models\User;
+use App\Models\CommentBook;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,6 +29,16 @@ class BookController extends Controller
         ];
 
         return view('pages.user.books.create', $data);
+    }
+
+    public function show($id)
+    {
+        $data = [
+            'book' => Book::find($id),
+            'comments' => CommentBook::where('book_id',$id)->get()
+        ];
+        // dd($data)
+        return view('pages.user.books.show', $data);
     }
 
     public function store(Request $request)
