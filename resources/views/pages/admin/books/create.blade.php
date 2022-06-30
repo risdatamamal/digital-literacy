@@ -35,26 +35,49 @@
                     @csrf
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="title">
                                 Title
                             </label>
-                            <input value="{{ old('title')}}" name="title" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Title">
+                            <input value="{{ old('title') }}" name="title"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="title" type="text" placeholder="Title">
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="cover">
+                                Cover
+                            </label>
+                            <div class="w-lg-50 w-sm-100">
+                                <img id="image-preview" class="d-block mb-2 img-fluid" src="" alt="Preview" />
+                            </div>
+                            <input multiple accept="image/*" value="{{ old('cover') }}" name="cover"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="cover" type="file" placeholder="Cover" onchange="previewImage()">
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="content">
                                 Content
                             </label>
-                            <textarea type="text" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="editor" name="content" value="{{ old('content') }}"></textarea>
+                            <textarea type="text"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="editor" name="content" value="{{ old('content') }}"></textarea>
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="category">
                                 Category
                             </label>
-                            <select name="category_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name">
+                            <select name="category_id"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="category">
                                 <option value="Select Category" disabled>Select Category</option>
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -64,10 +87,13 @@
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="user">
                                 User
                             </label>
-                            <select name="user_id" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name">
+                            <select name="user_id"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="user">
                                 <option value="Select User" disabled>Select User</option>
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -77,7 +103,8 @@
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3 text-right">
-                            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            <button type="submit"
+                                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                                 Create Book
                             </button>
                         </div>

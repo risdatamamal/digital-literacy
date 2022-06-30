@@ -6,8 +6,8 @@ use App\Models\Book;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\admin\BooksRequest;
 
 class BooksController extends Controller
 {
@@ -30,17 +30,17 @@ class BooksController extends Controller
         return view('pages.admin.books.create', $data);
     }
 
-    public function store(Request $request)
+    public function store(BooksRequest $request)
     {
         $data = $request->all();
 
-        // $data['cover'] = $request->file('cover')->store('assets/book','public');
+        $data['slug'] = Str::slug($request->title);
 
-        // $data['slug'] = Str::slug($request->title);
+        $data['cover'] = $request->file('cover')->store('assets/book','public');
 
         Book::create($data);
 
-        return redirect()->route('books.index')->with('success', 'Data berhasil dibuat');
+        return redirect()->route('books.index');
     }
 
     public function edit(Book $book)
@@ -54,26 +54,28 @@ class BooksController extends Controller
         return view('pages.admin.books.edit', $data);
     }
 
-    public function update(Request $request, Book $book)
+    public function update(BooksRequest $request, Book $book)
     {
         $data = $request->all();
 
-        // $item = Book::find($book->id);
+        $data['slug'] = Str::slug($request->title);
 
-        // if ($request->file('cover') == null) 
-        // {
-        //     $data['cover'] = $item->cover;
-        // } 
+        $item = Book::find($book->id);
+
+        if ($request->file('cover') == null) 
+        {
+            $data['cover'] = $item->cover;
+        } 
             
-        // else if($request->file('cover') != null)
-        // {
-        //     unlink('storage/'. $item->cover);
-        //     $data['cover'] = $request->file('cover')->store('assets/book','public');
-        // }
+        else if($request->file('cover') != null)
+        {
+            unlink('storage/'. $item->cover);
+            $data['cover'] = $request->file('cover')->store('assets/book','public');
+        }
 
         $book->update($data);
 
-        return redirect()->route('books.index')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('books.index');
     }
 
 
@@ -81,9 +83,9 @@ class BooksController extends Controller
     {
         $book->delete();
 
-        // unlink('storage/'. $book->cover);
+        unlink('storage/'. $book->cover);
 
-        return redirect()->route('books.index')->with('success', 'Data berhasil dihapus dari Admin');
+        return redirect()->route('books.index');
 
     }
 }

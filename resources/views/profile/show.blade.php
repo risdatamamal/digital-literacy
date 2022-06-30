@@ -22,6 +22,7 @@
                             <div>
                                 <div class="font-medium text-xl text-gray-800">Name: {{ Auth::user()->name }}</div>
                                 <div class="font-medium text-xl text-gray-800">Email: {{ Auth::user()->email }}</div>
+                                <div class="font-medium text-xl text-gray-800">Total Points: {{ Auth::user()->point }}</div>
                             </div>
                             <div class="ml-4">
                                 <x-jet-nav-link href="{{ route('profile.edit') }}">

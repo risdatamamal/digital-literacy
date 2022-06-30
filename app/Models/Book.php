@@ -16,6 +16,9 @@ class Book extends Model
         'rating',
         'content',
         'category_id',
+        'point',
+        'slug',
+        'cover',
         'user_id'
     ];
 
@@ -28,8 +31,4 @@ class Book extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
-
-    protected $appends = [
-        'cover',
-    ];
 }

@@ -188,6 +188,12 @@
             <x-jet-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.*')">
                 {{ __('Categories') }}
             </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('quotes.index') }}" :active="request()->routeIs('quotes.*')">
+                {{ __('Qoutes') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs('articles.*')">
+                {{ __('Articles') }}
+            </x-jet-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

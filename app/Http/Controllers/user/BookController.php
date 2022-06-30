@@ -5,9 +5,11 @@ namespace App\Http\Controllers\user;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\admin\BooksRequest;
 
 class BookController extends Controller
 {
@@ -30,9 +32,13 @@ class BookController extends Controller
         return view('pages.user.books.create', $data);
     }
 
-    public function store(Request $request)
+    public function store(BooksRequest $request)
     {
         $data = $request->all();
+
+        $data['slug'] = Str::slug($request->title);
+
+        $data['cover'] = $request->file('cover')->store('assets/book','public');
 
         Book::create($data);
 
@@ -50,9 +56,24 @@ class BookController extends Controller
         return view('pages.user.books.edit', $data);
     }
 
-    public function update(Request $request, Book $book)
+    public function update(BooksRequest $request, Book $book)
     {
         $data = $request->all();
+
+        $data['slug'] = Str::slug($request->title);
+
+        $item = Book::find($book->id);
+
+        if ($request->file('cover') == null) 
+        {
+            $data['cover'] = $item->cover;
+        } 
+            
+        else if($request->file('cover') != null)
+        {
+            unlink('storage/'. $item->cover);
+            $data['cover'] = $request->file('cover')->store('assets/book','public');
+        }
 
         $book->update($data);
 
