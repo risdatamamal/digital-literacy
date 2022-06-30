@@ -118,10 +118,25 @@
                                             {{ $comment->user->name }}
                                         </div>
                                         <div class="font-light text-sm text-gray-800">
-                                            {{ date("d/m/Y", strtotime($comment->created_at)) }}
+                                            {{ date("d/m/Y", strtotime($comment->created_at)) }}                        
                                         </div>
                                     </div>
-                                    <div class="font-medium text-base text-gray-800">{{ $comment->message }}</div>
+                                    <div class="flex flex-row justify-between w-full">
+                                        <div class="font-medium text-base text-gray-800">{{ $comment->message }}</div>
+                                        <form action="{{ route('user.books.comment.report', $book->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <input type="hidden" name="user_id" value="{{ $book->user->id }}">
+                                            <input type="hidden" name="comment_id" value="{{ $comment->id }}">
+                                            
+                                            <button class="rounded-full border-2 border-red-300 p-1 mt-1"
+                                                onclick="return confirm('Anda yakin report komentar?')">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 stroke-current text-red-600" fill="none" viewBox="0 0 24 24"  stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+                                                </svg>
+                                            </button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

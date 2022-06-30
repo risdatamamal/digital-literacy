@@ -42,12 +42,15 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     Route::prefix('writings')
     ->group(function() {
-        Route::get('/books', [WritingController::class, 'books'])->name('user.writing.books');
+        Route::prefix('books')
+        ->group(function() {
+            Route::get('/', [WritingController::class, 'books'])->name('user.writing.books');
+            Route::put('/{id}/comment', [CommentBookController::class, 'store'])->name('user.books.comment.store');
+            Route::put('/{id}/comment/report', [CommentBookController::class, 'report'])->name('user.books.comment.report');
+        });
         Route::get('/articles', [WritingController::class, 'articles'])->name('user.writing.articles');
         Route::get('/quotes', [WritingController::class, 'quotes'])->name('user.writing.quotes');
     });
-
-    Route::put('/books/{id}/comment', [CommentBookController::class, 'store'])->name('user.books.comment.store');
 
 });
 
