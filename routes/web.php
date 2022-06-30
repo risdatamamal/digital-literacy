@@ -14,6 +14,8 @@ use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\BookController as UserBooksController;
 use App\Http\Controllers\user\ArticleController as UserArticleController;
 use App\Http\Controllers\user\PointsController;
+use App\Http\Controllers\user\WritingController;
+use App\Http\Controllers\user\CommentBookController;
 use App\Http\Controllers\user\QuotesController as UserQuotesController;
 
 /*
@@ -37,6 +39,16 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::resource('/articles', UserArticleController::class, ['as' => 'user']);
     Route::get('/points', [PointsController::class, 'index'])->name('user.points');
     Route::resource('/quotes', UserQuotesController::class, ['as' => 'user']);
+
+    Route::prefix('writings')
+    ->group(function() {
+        Route::get('/books', [WritingController::class, 'books'])->name('user.writing.books');
+        Route::get('/articles', [WritingController::class, 'articles'])->name('user.writing.articles');
+        Route::get('/quotes', [WritingController::class, 'quotes'])->name('user.writing.quotes');
+    });
+
+    Route::put('/books/{id}/comment', [CommentBookController::class, 'store'])->name('user.books.comment.store');
+
 });
 
 // Admin
