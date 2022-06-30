@@ -6,6 +6,7 @@ use App\Models\Point;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\Article;
+use App\Models\Quote;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,6 +40,21 @@ class WritingController extends Controller
         ];
 
         return view('pages.user.writings.articles', $data);
+    }
+
+    public function quotes(Request $request) 
+    {
+        $key = $request->key;
+        
+        if($key != []) $quotes = Quote::where('title', 'LIKE', "%{$key}%")->get();
+        else $quotes = Quote::all();
+
+        $data = [
+            'quotes' => $quotes,
+            'key' => $key
+        ];
+
+        return view('pages.user.writings.quotes', $data);
     }
 
     

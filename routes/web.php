@@ -17,6 +17,7 @@ use App\Http\Controllers\user\PointsController;
 use App\Http\Controllers\user\WritingController;
 use App\Http\Controllers\user\CommentBookController;
 use App\Http\Controllers\user\CommentArticleController;
+use App\Http\Controllers\user\CommentQuoteController;
 use App\Http\Controllers\user\QuotesController as UserQuotesController;
 
 /*
@@ -56,8 +57,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
             Route::put('/{id}/comment', [CommentArticleController::class, 'store'])->name('user.articles.comment.store');
             Route::put('/{id}/comment/report', [CommentArticleController::class, 'report'])->name('user.articles.comment.report');
         });
-        
-        Route::get('/quotes', [WritingController::class, 'quotes'])->name('user.writing.quotes');
+
+        Route::prefix('quotes')
+        ->group(function() {
+            Route::get('/', [WritingController::class, 'quotes'])->name('user.writing.quotes');
+            Route::put('/{id}/comment', [CommentQuoteController::class, 'store'])->name('user.quotes.comment.store');
+            Route::put('/{id}/comment/report', [CommentQuoteController::class, 'report'])->name('user.quotes.comment.report');
+        });
     });
 
 });
