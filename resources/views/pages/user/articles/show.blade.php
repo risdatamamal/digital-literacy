@@ -28,8 +28,7 @@
                 @endif
                 <div class="shadow overflow-hidden sm:rounded-md mb-4 max-w-7xl">
                     <div class="px-4 py-5 bg-white sm:p-6 flex flex-row justify-start">
-                        <img src="{{ $article->cover ??  'https://perpustakaan.bsn.go.id/images/no-cover.png'}}" class="w-[244px] h-[244px] mr-4" height="300" width="300">
-                        <div class="flex-col">
+                        <div class="flex-col grid grid-cols-2 w-full">
                             <div class="mb-2">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-light " >
                                     Title
@@ -79,7 +78,7 @@
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
                             Content
                         </label>
-                        <textarea type="text" rows="25" readonly class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="content" >{{ $article->content }}</textarea>
+                        <textarea type="text" id="editor" rows="25" readonly class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="content" >{{ $article->content }}</textarea>
                     </div>
                 </div>
                 <form class="" action="{{ route('user.articles.comment.store', $article->id) }}" method="POST" >
