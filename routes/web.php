@@ -16,6 +16,8 @@ use App\Http\Controllers\user\ArticleController as UserArticleController;
 use App\Http\Controllers\user\PointsController;
 use App\Http\Controllers\user\WritingController;
 use App\Http\Controllers\user\BooksRatingController;
+use App\Http\Controllers\user\ArticlesRatingController;
+
 use App\Http\Controllers\user\CommentBookController;
 use App\Http\Controllers\user\CommentArticleController;
 use App\Http\Controllers\user\CommentQuoteController;
@@ -58,6 +60,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
             Route::get('/', [WritingController::class, 'articles'])->name('user.writing.articles');
             Route::put('/{id}/comment', [CommentArticleController::class, 'store'])->name('user.articles.comment.store');
             Route::put('/{id}/comment/report', [CommentArticleController::class, 'report'])->name('user.articles.comment.report');
+            Route::put('/{id}/rating/rate', [ArticlesRatingController::class, 'set'])->name('user.articles.rating.set');
         });
 
         Route::prefix('quotes')
