@@ -28,7 +28,7 @@
                 @endif
                 <div class="shadow overflow-hidden sm:rounded-md mb-4 max-w-7xl">
                     <div class="px-4 py-5 bg-white sm:p-6 flex flex-row justify-start">
-                        <img src="{{ $book->cover ??  'https://perpustakaan.bsn.go.id/images/no-cover.png'}}" class="w-[244px] h-[244px] mr-4" height="300" width="300">
+                        <img src="{{ $book->cover ? url('/storage\/'.$book->cover) : url('img/no-cover.png')}}" class="w-[244px] h-[244px] mr-4" height="300" width="300">
                         <div class="flex-col">
                             <div class="mb-2">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-light " >
