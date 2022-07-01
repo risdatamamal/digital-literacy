@@ -34,18 +34,21 @@
                     <div class="shadow overflow-hidden sm:rounded-md mb-4 max-w-7xl">
                         <a href="{{ route('user.books.show', $book->id) }}">
                             <div class="px-4 py-5 bg-white sm:p-6 flex flex-row justify-between">
-                                <div class="flex-col">
-                                    <img src="{{ $book->cover ? url('/storage\/'.$book->cover) : url('img/no-cover.png')}}" class="w-[244px] h-[244px]" height="300" width="300">
+                                <div class="flex-col w-full">
+                                    <img src="{{ $book->cover ? url('/storage\/'.$book->cover) : url('img/no-cover.png')}}" class="mb-2 w-[244px] h-[244px]" height="300" width="300">
                                     <p class="font-bold text-xl mr-4 block">{{ $book->title }}</p>
-                                    <div class="flex flex-row">
+                                    <div class="flex flex-row w-full">
                                         <div class="mr-4 block felx-row flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5  " viewBox="0 0 20 20" fill="#f59e0b">
                                                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                                             </svg>
-                                            {{ $book->rating }}
+                                            {{ $book->rating ?? '-' }}
                                         </div>
-                                        <div class="mr-4 block font-light">
+                                        <div class="mr-4 block font-light text-gray-600">
                                             {{ $book->category->name }}
+                                        </div>
+                                        <div class="font-thin text-gray-400 text-sm items-center justify-end flex w-full" >
+                                            {{ date("d/m/Y", strtotime($book->created_at)) }}
                                         </div>
                                     </div>
                                 </div>
