@@ -73,7 +73,38 @@
                         <textarea type="text" rows="25" readonly class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" name="content" id="editor">{{ $quote->content }}</textarea>
                     </div>
                 </div>
-                <form class="" action="{{ route('user.quotes.comment.store', $quote->id) }}" method="POST" >
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3 text-right">
+                        <button onclick="showRating()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            Rate Quote
+                        </button>
+                        <button onclick="showComment()" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                            Post Comment
+                        </button>
+                    </div>
+                </div>
+                <form class="hidden" id="rating" action="{{ route('user.quotes.rating.set', $quote->id) }}" method="POST" >
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" name="user_id" value="{{ $quote->user->id }}">
+                    <input type="hidden" name="quote_id" value="{{ $quote->id }}">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                                Give a Rating
+                            </label>    
+                            <input value="" name="value" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="number">
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3 text-right">
+                            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <form class="hidden" id="comment" action="{{ route('user.quotes.comment.store', $quote->id) }}" method="POST" >
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="user_id" value="{{ $quote->user->id }}">
@@ -137,3 +168,12 @@
         </div>
     </div>
 </x-app-layout>
+<script>
+    function showRating(){
+        $('#rating').toggleClass('hidden');
+    }
+    function showComment(){
+        $('#comment').toggleClass('hidden');
+    }
+    
+</script>
