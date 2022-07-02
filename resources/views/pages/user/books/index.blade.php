@@ -22,7 +22,7 @@
                         <tbody>
                             @foreach ($books as $book)
                                 <tr>
-                                    <td><img src="{{ Storage::url($book->cover) }}" alt="{{ $book->cover }}"
+                                    <td><img src="{{ $book->cover ? Storage::url($book->cover) : url('img/no-cover.png')}}" alt="{{ $book->cover }}"
                                             style="max-height: 180px;" /></td>
                                     <td>
                                     <td>{{ $book->title }}</td>

@@ -35,7 +35,7 @@
                         <a href="{{ route('user.books.show', $book->id) }}">
                             <div class="px-4 py-5 bg-white sm:p-6 flex flex-row justify-between">
                                 <div class="flex-col w-full">
-                                    <img src="{{ $book->cover ? url('/storage\/'.$book->cover) : url('img/no-cover.png')}}" class="mb-2 w-[244px] h-[244px]" height="300" width="300">
+                                    <img src="{{ $book->cover ? Storage::url($book->cover) : url('img/no-cover.png')}}" class="mb-2 w-[244px] h-[244px]" height="300" width="300">
                                     <p class="font-bold text-xl mr-4 block">{{ $book->title }}</p>
                                     <div class="flex flex-row w-full">
                                         <div class="mr-4 block felx-row">

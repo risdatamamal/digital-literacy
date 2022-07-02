@@ -9,9 +9,11 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        // $books = Book::with(['cover'])->latest()->get();
+        $books = Book::all()->take(6);
 
-        // return view('pages.index', compact('books'));
-        return view('pages.index');
+        return view('pages.index', [
+            'books' => $books
+        ]);
+        // return view('pages.index');
     }
 }

@@ -9,12 +9,6 @@
                 <li>
                   <a href="#" class="hover:underline py-1 block">Shipping</a>
                 </li>
-                <li>
-                  <a href="#" class="hover:underline py-1 block">Refund</a>
-                </li>
-                <li>
-                  <a href="#" class="hover:underline py-1 block">Promotion</a>
-                </li>
               </ul>
             </div>
             <div class="px-4 w-full md:w-2/12 mb-4 md:mb-0 accordion">
@@ -22,9 +16,6 @@
               <ul class="h-0 invisible md:h-auto md:visible overflow-hidden">
                 <li>
                   <a href="#" class="hover:underline py-1 block">About</a>
-                </li>
-                <li>
-                  <a href="#" class="hover:underline py-1 block">Career</a>
                 </li>
                 <li>
                   <a href="#" class="hover:underline py-1 block">Contact Us</a>
