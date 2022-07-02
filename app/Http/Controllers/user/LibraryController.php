@@ -15,8 +15,6 @@ class LibraryController extends Controller
     public function index()
     {
         $data = [
-            'categories' => Category::all(),
-            'users' => User::all(),
             'books' => Library::getUserRegisteredBook(Auth::user()->id)
         ];
         

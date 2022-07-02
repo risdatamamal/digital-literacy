@@ -20,6 +20,16 @@ class Library extends Model
     {
         return $this->belongsTo(Book::class, 'book_id', 'id');
     }
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     public static function getRegisteredUser($id_book) {
         return DB::table('users')
