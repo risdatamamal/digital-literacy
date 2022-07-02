@@ -13,7 +13,6 @@
 
     <link rel="manifest" href="site.webmanifest" />
     <link rel="apple-touch-icon" href="{{ url('/frontend/images/content/favicon.png')}}" />
-    <!-- Place favicon.ico in the root directory -->
 
     <link rel="stylesheet" href="{{ url('/frontend/css/main.css') }}" />
     <link rel="icon" href="{{ url('/frontend/images/content/favicon.png') }} " />
@@ -23,14 +22,7 @@
   <link href="{{ url('/frontend/css/app.minify.css') }}" rel="stylesheet"></head>
 
   <body>
-    @if (isset($header))
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-     @endif
-    @livewire('navigation')
+    @include('components.frontend.navbar')
     @yield('content')
     
     <x-frontend.footer/>
