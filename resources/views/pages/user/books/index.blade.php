@@ -16,24 +16,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="mb-10">
-                <a href="{{ route('user.books.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg">
-                    + Create Book
-                </a>
-            </div>
             <div class="shadow overflow-hidden sm:rounded-md">
                 <div class="px-4 py-5 bg-white sm:p-6">
-                    <table width="100%" id="crudTable">
-                        <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
+                    <table id="crudTable">
                         <tbody>
                             @foreach ($books as $book)
                                 <tr>
+                                    <td><img src="{{ Storage::url($book->cover) }}" alt="{{ $book->cover }}"
+                                            style="max-height: 180px;" /></td>
+                                    <td>
                                     <td>{{ $book->title }}</td>
                                     <td>{{ $book->category->name }}</td>
                                     <td>
