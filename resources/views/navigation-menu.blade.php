@@ -18,12 +18,6 @@
                     <x-jet-nav-link href="{{ route('user.books.index') }}" :active="request()->routeIs('user.books.*')">
                         {{ __('Library') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('user.articles.index') }}" :active="request()->routeIs('user.articles.*')">
-                        {{ __('My Articles') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('user.quotes.index') }}" :active="request()->routeIs('user.quotes.*')">
-                        {{ __('My Quotes') }}
-                    </x-jet-nav-link>
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
                         <x-jet-dropdown align="right" width="48">
                             <x-slot name="trigger">
@@ -233,12 +227,6 @@
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('user.books.index') }}" :active="request()->routeIs('user.books.*')">
                 {{ __('Library') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('user.articles.index') }}" :active="request()->routeIs('user.articles.*')">
-                {{ __('My Articles') }}
-            </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('user.quotes.index') }}" :active="request()->routeIs('user.quotes.*')">
-                {{ __('My Quotes') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-jet-dropdown align="right" width="48">
