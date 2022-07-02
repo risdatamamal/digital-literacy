@@ -72,7 +72,7 @@
 
 
         @livewireStyles
-        <link rel="icon" href="{{ url('/frontend/favicon-1.ico') }}">>
+        <link rel="icon" href="{{ url('/frontend/favicon-1.ico') }}">
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>

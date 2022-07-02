@@ -9,6 +9,9 @@
                 <ul class="fixed bg-white inset-0 flex flex-col invisible items-center justify-center opacity-0 md:visible md:flex-row md:bg-transparent md:relative md:opacity-100 md:flex md:items-center"
                     id="menu">
                     <li class="mx-3 py-6 md:py-0">
+                        <a href="{{ route('home') }}" class="text-black md:text-white hover:underline">Home</a>
+                    </li>
+                    <li class="mx-3 py-6 md:py-0">
                         <a href="#" class="text-black md:text-white hover:underline">Book</a>
                     </li>
                     <li class="mx-3 py-6 md:py-0">

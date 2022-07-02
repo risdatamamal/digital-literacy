@@ -1,28 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 
 use App\Http\Controllers\admin\BooksController;
 use App\Http\Controllers\admin\UsersController;
 use App\Http\Controllers\admin\QuotesController;
+use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\CategoriesController;
-use App\Http\Controllers\admin\DashboardAdminController;
 
-use App\Http\Controllers\user\DashboardController;
-use App\Http\Controllers\user\BookController as UserBooksController;
-use App\Http\Controllers\user\ArticleController as UserArticleController;
 use App\Http\Controllers\user\PointsController;
+use App\Http\Controllers\user\LibraryController;
 use App\Http\Controllers\user\WritingController;
+use App\Http\Controllers\user\DashboardController;
 use App\Http\Controllers\user\BooksRatingController;
-use App\Http\Controllers\user\ArticlesRatingController;
-use App\Http\Controllers\user\QuotesRatingController;
-
 use App\Http\Controllers\user\CommentBookController;
-use App\Http\Controllers\user\CommentArticleController;
 use App\Http\Controllers\user\CommentQuoteController;
+use App\Http\Controllers\user\QuotesRatingController;
+use App\Http\Controllers\user\ArticlesRatingController;
+use App\Http\Controllers\user\CommentArticleController;
+use App\Http\Controllers\user\BookController as UserBooksController;
 use App\Http\Controllers\user\QuotesController as UserQuotesController;
+use App\Http\Controllers\user\ArticleController as UserArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,10 +42,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
     ->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/library', [LibraryController::class, 'index'])->name('library');
+    Route::get('/add-book/{id}', [LibraryController::class, 'add'])->name('add-book');
+
     Route::resource('books', UserBooksController::class, ['as' => 'user']);
     Route::resource('articles', UserArticleController::class, ['as' => 'user']);
     Route::get('/points', [PointsController::class, 'index'])->name('user.points');
-    Route::resource('/quotes', UserQuotesController::class, ['as' => 'user']);
+    Route::resource('quotes', UserQuotesController::class, ['as' => 'user']);
 
     Route::prefix('writings')
     ->group(function() {
