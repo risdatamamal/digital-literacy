@@ -7,13 +7,19 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $books = Book::all()->take(6);
 
         return view('pages.index', [
             'books' => $books
         ]);
-        // return view('pages.index');
+    }
+
+    public function details(Request $request, $slug)
+    {
+        $book = Book::all()->where('slug', $slug)->firstOrFail();
+
+        return view('pages.details', ['book' => $book]);
     }
 }

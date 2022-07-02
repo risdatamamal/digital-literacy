@@ -37,6 +37,7 @@ use App\Http\Controllers\user\ArticleController as UserArticleController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/details/book/{slug}', [HomeController::class, 'details'])->name('details-book');
 
 // User
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])

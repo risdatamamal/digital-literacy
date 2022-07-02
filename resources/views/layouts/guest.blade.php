@@ -24,10 +24,13 @@
 </head>
 
 <body>
-    @include('components.frontend.navbar')
+    <x-frontend.navbar />
+    
     @yield('content')
 
     <x-frontend.footer />
+
+
     <script>
         window.ga = function() {
             ga.q.push(arguments);

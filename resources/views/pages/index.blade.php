@@ -137,8 +137,8 @@
                             <h5 class="text-lg font-semibold mt-4">{{ $book->title }}</h5>
                             <h5 class="text-sm mt-4">{{ $book->category->name }}</h5>
                             <span>{{ $book->point }} Point</span>
-                            {{-- <a href="{{ route('details', $book->slug) }}" class="stretched-link">
-                            </a> --}}
+                            <a href="{{ route('details-book', $book->slug) }}" class="stretched-link">
+                            </a>
                         </div>
                     @endforeach
                 </div>

@@ -34,7 +34,7 @@
                                             alt="" class="w-full h-full object-cover object-center" />
                                     </div>
                                     <h5 class="text-lg font-semibold mt-4">{{ $book->title }}</h5>
-                                    <h5 class="text-sm mt-4">{{ $book->category->name }}</h5>
+                                    <h5 class="text-sm mt-4">{{ $book->category_id }}</h5>
                                     <x-jet-button class="mt-4">
                                         {{ __('Detail') }}
                                     </x-jet-button>

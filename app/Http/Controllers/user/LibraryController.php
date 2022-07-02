@@ -3,18 +3,24 @@
 namespace App\Http\Controllers\user;
 
 use App\Models\Book;
+use App\Models\User;
+use App\Models\Library;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Library;
 use Illuminate\Support\Facades\Auth;
 
 class LibraryController extends Controller
 {
     public function index()
     {
-        return view('pages.user.library', [
+        $data = [
+            'categories' => Category::all(),
+            'users' => User::all(),
             'books' => Library::getUserRegisteredBook(Auth::user()->id)
-        ]);
+        ];
+        
+        return view('pages.user.library', $data);
     }
 
     public function add($id_book)
