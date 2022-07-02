@@ -16,10 +16,10 @@ class Book extends Model
         'rating',
         'content',
         'category_id',
-        'point',
         'slug',
         'cover',
-        'user_id'
+        'user_id',
+        'point'
     ];
 
     public function category()

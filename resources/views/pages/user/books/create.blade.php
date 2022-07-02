@@ -76,6 +76,17 @@
                             </select>
                         </div>
                     </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full px-3">
+                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                for="point">
+                                Point
+                            </label>
+                            <input value="{{ old('point') }}" name="point"
+                                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                id="point" type="number" placeholder="Point">
+                        </div>
+                    </div>
                     <input type="hidden" name="user_id" value="{{ $user }}">
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3 text-right">
