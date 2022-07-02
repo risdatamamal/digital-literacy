@@ -56,10 +56,9 @@
                         </div>
                         <div class="overlay left-0 top-0 bottom-0 flex justify-center flex-col pl-48 md:pl-72">
                             <h5 class="text-lg font-semibold">Romance</h5>
-                            <span class="">18.309 items</span>
+                            <span class="">{{ $books->count() }} items</span>
                         </div>
                         <a href="details.html" class="stretched-link">
-                            <!-- fake children -->
                         </a>
                     </div>
                     <div class="relative col-span-9 row-span-1 md:col-span-2 md:row-span-2 card">
@@ -70,10 +69,9 @@
                         <div
                             class="overlay right-0 left-0 top-0 bottom-0 md:bottom-auto flex justify-center md:items-center flex-col pl-48 md:pl-0 pt-0 md:pt-12">
                             <h5 class="text-lg font-semibold">Horor</h5>
-                            <span class="">77.392 items</span>
+                            <span class="">{{ $books->count() }} items</span>
                         </div>
                         <a href="details.html" class="stretched-link">
-                            <!-- fake children -->
                         </a>
                     </div>
                     <div class="relative col-span-9 row-span-1 md:col-span-3 md:row-span-2 card">
@@ -84,10 +82,9 @@
                         <div
                             class="overlay right-0 left-0 top-0 bottom-0 md:bottom-auto flex justify-center md:items-center flex-col pl-48 md:pl-0 pt-0 md:pt-12">
                             <h5 class="text-lg font-semibold">Life Motivation</h5>
-                            <span class="">22.094 items</span>
+                            <span class="">{{ $books->count() }} items</span>
                         </div>
                         <a href="details.html" class="stretched-link">
-                            <!-- fake children -->
                         </a>
                     </div>
                     <div class="relative col-span-9 row-span-1 md:col-span-4 card">
@@ -97,10 +94,9 @@
                         </div>
                         <div class="overlay left-0 top-0 bottom-0 flex justify-center flex-col pl-48 md:pl-72">
                             <h5 class="text-lg font-semibold">Kids</h5>
-                            <span class="">837 items</span>
+                            <span class="">{{ $books->count() }} items</span>
                         </div>
                         <a href="details.html" class="stretched-link">
-                            <!-- fake children -->
                         </a>
                     </div>
                 </div>
