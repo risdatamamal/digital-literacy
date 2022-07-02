@@ -15,7 +15,7 @@
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('user.books.index') }}" :active="request()->routeIs('user.books.*')">
+                    <x-jet-nav-link href="{{ route('library') }}" :active="request()->routeIs('library')">
                         {{ __('Library') }}
                     </x-jet-nav-link>
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -225,9 +225,10 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('user.books.index') }}" :active="request()->routeIs('user.books.*')">
+            <x-jet-responsive-nav-link href="{{ route('library') }}" :active="request()->routeIs('library')">
                 {{ __('Library') }}
             </x-jet-responsive-nav-link>
+<<<<<<< Updated upstream
             <x-jet-responsive-nav-link class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -261,6 +262,16 @@
                     </x-slot>
 
                 </x-jet-dropdown>
+=======
+            <x-jet-responsive-nav-link href="{{ route('user.writing.books') }}" :active="request()->routeIs('user.writing.books')">
+                {{ __('Books') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('user.writing.articles') }}" :active="request()->routeIs('user.writing.articles')">
+                {{ __('Articles') }}
+            </x-jet-responsive-nav-link>
+            <x-jet-responsive-nav-link href="{{ route('user.writing.quotes') }}" :active="request()->routeIs('user.writing.quotes')">
+                {{ __('Quotes') }}
+>>>>>>> Stashed changes
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('user.points') }}" :active="request()->routeIs('user.points')">
                 {{ __('Point') }}
