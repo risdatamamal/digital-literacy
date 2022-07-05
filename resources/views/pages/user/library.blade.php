@@ -40,8 +40,12 @@
                                     </x-jet-button>
                                 </div>
                             @empty
-                                <div class="p-6">
-                                    <div class="text-xl text-center font-bold">Tidak ada buku yang kamu tambahkan!</div>
+                                <div class="container mx-auto">
+                                    <div class="flex justify-center text-center mt-4">
+                                        <h3 class="text-xl capitalize">
+                                            Tidak ada buku yang tersedia.
+                                        </h3>
+                                    </div>
                                 </div>
                             @endforelse
                         </div>

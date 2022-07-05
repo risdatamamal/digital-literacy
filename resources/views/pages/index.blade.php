@@ -114,7 +114,7 @@
             <div class="overflow-x-hidden px-4" id="carousel">
                 <div class="container mx-auto"></div>
                 <div class="flex -mx-4 flex-row relative">
-                    @foreach ($books as $book)
+                    @forelse ($books as $book)
                         <div class="px-4 relative card group">
                             <div class="rounded-xl overflow-hidden card-shadow relative"
                                 style="width: 287px; height: 386px">
@@ -131,7 +131,7 @@
                                         </svg>
                                     </div>
                                 </div>
-                                <img src="{{ $book->cover ? Storage::url($book->cover) : url('img/no-cover.png')}}"
+                                <img src="{{ $book->cover ? Storage::url($book->cover) : url('img/no-cover.png') }}"
                                     alt="" class="w-full h-full object-cover object-center" />
                             </div>
                             <h5 class="text-lg font-semibold mt-4">{{ $book->title }}</h5>
@@ -140,7 +140,15 @@
                             <a href="{{ route('details-book', $book->slug) }}" class="stretched-link">
                             </a>
                         </div>
-                    @endforeach
+                    @empty
+                        <div class="container mx-auto mt-4">
+                            <div class="flex justify-center text-center mt-4">
+                                <h3 class="text-xl capitalize">
+                                    Tidak ada buku yang tersedia.
+                                </h3>
+                            </div>
+                        </div>
+                    @endforelse
                 </div>
             </div>
         </section>
