@@ -34,4 +34,19 @@ class UserTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_user_register()
+    {
+        $user = [
+            'name' => 'admin12',
+            'email' => 'admin12@email.com',
+            'password' => 'admin123',
+            'password_confirmation' => 'admin123',
+            'terms' => True
+        ];
+
+        $this->post('/register', $user);
+
+        $this->assertDatabaseHas('users', ['name' => $user['name']]);
+    }
 }
