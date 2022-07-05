@@ -1,5 +1,12 @@
 <x-guest-layout>
     @section('content')
+    <div class="container mx-auto mb-4">
+        <div class="flex justify-center text-center mb-4">
+            <h3 class="text-2xl capitalize font-semibold">
+                Articles Collection
+            </h3>
+        </div>
+    </div>
     <div class="py-12 mx-3">
         <div class="flex flex-col mx-3">
             @foreach ($articles as $article)
