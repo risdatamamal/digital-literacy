@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Quote;
 use Illuminate\Http\Request;
 
 class QuoteController extends Controller
@@ -15,6 +16,11 @@ class QuoteController extends Controller
     public function index()
     {
         //
+        $data = [
+            'quotes' => Quote::all()
+        ];
+
+        return view('pages.dashboard.quote.index', $data);
     }
 
     /**

@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\CategoriesController;
 use App\Http\Controllers\dashboard\BookController;
 use App\Http\Controllers\dashboard\ArticlesController;
+use App\Http\Controllers\dashboard\QuoteController;
 use App\Http\Controllers\user\PointsController;
 use App\Http\Controllers\user\LibraryController;
 use App\Http\Controllers\user\WritingController;
@@ -41,6 +42,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/details/book/{slug}', [HomeController::class, 'details'])->name('details-book');
 Route::get('/books/all', [BookController::class, 'index'])->name('all-book');
 Route::get('/articles/all', [ArticlesController::class, 'index'])->name('all-article');
+Route::get('/quotes/all', [QuoteController::class, 'index'])->name('all-quote');
 
 // User
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])

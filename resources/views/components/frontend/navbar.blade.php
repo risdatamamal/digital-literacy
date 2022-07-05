@@ -24,7 +24,7 @@
                             class="text-black {{ \Route::current()->getName() == 'home' ? 'md:text-white' : 'md:text-black' }} hover:underline">Article</a>
                     </li>
                     <li class="mx-3 py-6 md:py-0">
-                        <a href="#"
+                        <a href="{{ route('all-quote') }}"
                             class="text-black {{ \Route::current()->getName() == 'home' ? 'md:text-white' : 'md:text-black' }} hover:underline">Quotes</a>
                     </li>
                     @auth
