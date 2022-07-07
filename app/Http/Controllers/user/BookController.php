@@ -39,7 +39,6 @@ class BookController extends Controller
             'book' => Book::find($id),
             'comments' => CommentBook::where('book_id',$id)->get()
         ];
-        // dd($data)
         return view('pages.user.books.show', $data);
     }
 
@@ -96,7 +95,7 @@ class BookController extends Controller
     {
         $book->delete();
 
-        // unlink('storage/'. $book->cover);
+        unlink('storage/'. $book->cover);
 
         return redirect()->route('user.books.index')->with('success', 'Buku berhasil dihapus');
 

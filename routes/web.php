@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\dashboard\BookController;
+use App\Http\Controllers\dashboard\ArticlesController;
+use App\Http\Controllers\dashboard\QuoteController;
 
 use App\Http\Controllers\admin\BooksController;
 use App\Http\Controllers\admin\UsersController;
@@ -10,9 +13,7 @@ use App\Http\Controllers\admin\QuotesController;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\ArticleController;
 use App\Http\Controllers\admin\CategoriesController;
-use App\Http\Controllers\dashboard\BookController;
-use App\Http\Controllers\dashboard\ArticlesController;
-use App\Http\Controllers\dashboard\QuoteController;
+
 use App\Http\Controllers\user\PointsController;
 use App\Http\Controllers\user\LibraryController;
 use App\Http\Controllers\user\WritingController;
@@ -51,6 +52,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
         Route::get('/library', [LibraryController::class, 'index'])->name('library');
         Route::get('/add-book/{id}', [LibraryController::class, 'add'])->name('add-book');
+        Route::get('/library/read/{id}', [LibraryController::class, 'show'])->name('read-book');
 
         Route::resource('books', UserBooksController::class, ['as' => 'user']);
         Route::resource('articles', UserArticleController::class, ['as' => 'user']);

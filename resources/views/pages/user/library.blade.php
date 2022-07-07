@@ -34,10 +34,10 @@
                                             alt="" class="w-full h-full object-cover object-center" />
                                     </div>
                                     <h5 class="text-lg font-semibold mt-4">{{ $book->title }}</h5>
-                                    <h5 class="text-sm mt-4">{{ $book->category_id }}</h5>
-                                    <x-jet-button class="mt-4">
-                                        {{ __('Detail') }}
-                                    </x-jet-button>
+                                    <a class="inline-block border border-gray-500 bg-gray-500 text-white rounded-md px-2 py-1 m-2 transition duration-500 ease select-none hover:bg-gray-600 focus:outline-none focus:shadow-outline"
+                                        href="{{ route('read-book', $book->id) }}">
+                                        Read Book
+                                    </a>
                                 </div>
                             @empty
                                 <div class="container mx-auto">

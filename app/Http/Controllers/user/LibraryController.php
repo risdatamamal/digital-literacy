@@ -39,4 +39,11 @@ class LibraryController extends Controller
             return redirect('/library')->with('berhasil', 'Berhasil mendaftar ke acara '. $book->title);
         }
     }
+
+    public function show($id) {
+        $data = [
+            'book' => Book::find($id),
+        ];
+        return view('pages.user.read', $data);
+    }
 }
